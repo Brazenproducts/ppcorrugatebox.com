@@ -63,27 +63,6 @@
     }
 
     /* ── NAV ── */
-    nav {
-      background: #0a0a0a;
-      border-bottom: 2px solid var(--accent);
-      padding: 0 48px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 68px;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
-    .nav-logo {
-      font-family: 'Arial', sans-serif;
-      font-size: 1rem;
-      font-weight: 900;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      color: var(--accent);
-      text-decoration: none;
-    }
     .nav-right { display: flex; align-items: center; gap: 32px; }
     .nav-link {
       font-family: 'Arial', sans-serif;
@@ -96,18 +75,6 @@
       transition: color 0.2s;
     }
     .nav-link:hover { color: var(--accent); }
-    .nav-cta {
-      background: var(--accent);
-      color: #111;
-      padding: 10px 24px;
-      font-family: 'Arial', sans-serif;
-      font-size: 0.82rem;
-      font-weight: 900;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      text-decoration: none;
-      transition: background 0.2s;
-    }
     .nav-cta:hover { background: var(--accent-hover); color: #fff; }
 
     /* ── HERO ── */
@@ -392,7 +359,6 @@
 
     /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
-      nav { padding: 0 24px; }
       .nav-right .nav-link { display: none; }
       .hero { padding: 80px 24px 72px; }
       section { padding: 64px 24px; }
@@ -435,46 +401,6 @@
   
     /* ===== MOBILE NAV ===== */
     html, body { overflow-x: hidden; max-width: 100%; }
-    .hamburger {
-      display: none;
-      flex-direction: column;
-      gap: 5px;
-      cursor: pointer;
-      padding: 8px;
-      background: none;
-      border: none;
-      margin-left: auto;
-      flex-shrink: 0;
-    }
-    .hamburger span {
-      display: block;
-      width: 24px;
-      height: 2px;
-      background: currentColor;
-      border-radius: 2px;
-      transition: 0.2s;
-    }
-    .mobile-menu {
-      display: none;
-      flex-direction: column;
-      position: absolute;
-      top: 100%;
-      left: 0;
-      right: 0;
-      background: inherit;
-      border-top: 1px solid rgba(0,0,0,0.1);
-      padding: 12px 0;
-      z-index: 999;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-    }
-    .mobile-menu.open { display: flex; }
-    .mobile-menu a {
-      padding: 12px 24px;
-      font-size: 1rem;
-      font-weight: 600;
-      text-decoration: none;
-      display: block;
-    }
     @media (max-width: 768px) {
       nav, header {
         position: relative;
@@ -488,7 +414,6 @@
       /* hide desktop nav links / items */
       .nav-links, .nav-items, .nav-menu, .nav-right { display: none !important; }
       /* show hamburger */
-      .hamburger { display: flex !important; }
       /* fix any overflow-causing elements */
       nav > *, header > * { flex-shrink: 1; min-width: 0; }
       /* logo stays visible */
@@ -502,26 +427,40 @@
       }
     }
 
+  
+    nav { background: #fff; border-bottom: 2px solid #d97706; position: sticky; top: 0; z-index: 100; }
+    .nav-top { max-width: 1100px; margin: 0 auto; padding: 0.75rem 1.5rem; display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo { font-weight: 900; font-size: 1.1rem; color: #d97706; text-decoration: none; letter-spacing: -0.5px; }
+    .nav-links-desktop { display: flex; gap: 1.5rem; list-style: none; align-items: center; }
+    .nav-links-desktop a { text-decoration: none; color: #333; font-size: 0.9rem; font-weight: 500; }
+    .nav-links-desktop a:hover { color: #d97706; }
+    .nav-cta-btn { background: #d97706; color: #fff !important; padding: 0.4rem 1rem; border-radius: 4px; }
+    .nav-strip { display: none; overflow-x: auto; white-space: nowrap; padding: 0.5rem 1rem; border-top: 1px solid #eee; scrollbar-width: none; }
+    .nav-strip a { display: inline-block; text-decoration: none; color: #333; font-size: 0.85rem; font-weight: 500; margin-right: 1.2rem; }
+    .nav-strip .strip-cta { color: #d97706; font-weight: 700; }
+    @media (max-width: 840px) { .nav-links-desktop { display: none; } .nav-strip { display: block; } }
+
   </style>
 </head>
 <body>
 
   <!-- NAV -->
   <nav>
-    <a class="nav-logo" href="https://www.ppcorrugatebox.com/">ppcorrugatebox.com</a>
-    <div class="nav-right">
-      <a class="nav-link" href="#features">Features</a>
-      <a class="nav-link" href="#compare">Compare</a>
-      <a class="nav-link" href="#applications">Applications</a>
-      <a class="nav-cta" href="https://elipacko.com" rel="noopener">Get Quote</a>
-    </div>
-  <button class="hamburger" style="color:#d97706" aria-label="Menu">
-    <span></span><span></span><span></span>
-  </button>
-  <div class="mobile-menu" style="background:inherit">
-  <a href="#features" style="color:#d97706">Features</a>
-  <a href="#compare" style="color:#d97706">Compare</a>
-  <a href="#applications" style="color:#d97706">Applications</a>
+  <div class="nav-top">
+    <a href="/" class="nav-logo">PPCorrugateBox.com</a>
+    <ul class="nav-links-desktop" role="list">
+      <li><a href="/heavy-duty-pp-boxes/">Heavy Duty PP Boxes</a></li>
+      <li><a href="/corrugated-pp-crates/">Corrugated PP Crates</a></li>
+      <li><a href="/bulk-mailers/">Bulk Mailers</a></li>
+      <li><a href="https://elipacko.com"class="nav-cta-btn">Get a Quote</a></li>
+    </ul>
+  </div>
+  <div class="nav-strip" role="navigation">
+      <a href="/">Home</a>
+      <a href="/heavy-duty-pp-boxes/">Heavy Duty PP Boxes</a>
+      <a href="/corrugated-pp-crates/">Corrugated PP Crates</a>
+      <a href="/bulk-mailers/">Bulk Mailers</a>
+      <a href="https://elipacko.com"class="strip-cta">Get a Quote</a>
   </div>
 </nav>
 <!-- PHOTO STRIP -->
@@ -805,22 +744,7 @@
   </footer>
 
 
-<script>
-(function(){
-  var btn = document.querySelector('.hamburger');
-  var menu = document.querySelector('.mobile-menu');
-  if(btn && menu){
-    btn.addEventListener('click', function(){
-      menu.classList.toggle('open');
-    });
-    document.addEventListener('click', function(e){
-      if(!btn.contains(e.target) && !menu.contains(e.target)){
-        menu.classList.remove('open');
-      }
-    });
-  }
-})();
-</script>
+
 
 </body>
 </html>
